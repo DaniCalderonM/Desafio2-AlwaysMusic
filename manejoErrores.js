@@ -1,8 +1,15 @@
 //Funcion para manejo de errores
 const manejoErrores = (error, pool, tabla) => {
-    //console.log("Error producido: ", error);
-    console.log("Codigo de error PG producido: ", error.code);
-    switch (error.code) {
+    // console.log("Error producido: ", error);
+    let enviado = error.code
+    if (enviado == undefined) {
+        console.log("Error logico codigo 600");
+        enviado = '600'
+    } else {
+        console.log("Codigo de error PG producido: ", enviado);
+    }
+    // console.log("Valor de enviado: ", enviado);
+    switch (enviado) {
         case '28P01':
             console.log("autentificacion password falló o no existe usuario: " + pool.options.user);
             break;
@@ -32,6 +39,9 @@ const manejoErrores = (error, pool, tabla) => {
             break;
         case 'ECONNREFUSED':
             console.log("Error en el puerto de conexion a BD, usando: " + pool.options.port);
+            break;
+        case '600':
+            console.log(error.message)
             break;
         default:
             console.log("Error interno del servidor");
