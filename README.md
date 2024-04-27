@@ -37,10 +37,10 @@ Lista de software y herramientas, incluyendo versiones, que necesitas para insta
 ### el archivo .env debe tener este contenido:
 
 - TABLA=estudiantes
-- USER=<tu usuario>
+- USER= 'tu usuario'
 - HOST=localhost
-- PASSWORD=<tu contraseña>
-- DATABASE=<nombre de tu base de datos>
+- PASSWORD= 'tu contraseña'
+- DATABASE= 'nombre de tu base de datos'
 - PORT=5432
 
 ## Despliegue 📦
