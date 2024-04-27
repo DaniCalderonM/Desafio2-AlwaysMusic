@@ -174,29 +174,24 @@ const eliminarEstudiante = async ({ rut }) => {
     }
 }
 
-// Funcion IIFE que recibe de la linea de comando y llama funciones asincronas internas
-(() => {
+// Objeto funciones con propiedades asociadas a funciones asincronas
+const funciones = {
+    nuevo: nuevoEstudiante,
+    rut: consultaRut,
+    consulta: getEstudiantes,
+    editar: editarEstudiante,
+    eliminar: eliminarEstudiante
+};
+
+// Arreglo con todas las funciones validas declaradas en las keys de objeto funciones
+const arregloFunciones = Object.keys(funciones);
+
+// Funcion IIFE que recibe de la linea de comando y llama funciones asincronas
+(async () => {
     // recibir funciones y campos de la linea de comando
-    switch (funcion) {
-        case 'nuevo':
-            nuevoEstudiante({ rut, nombre, curso, nivel })
-            break;
-        case 'rut':
-            consultaRut({ rut })
-            break;
-        case 'consulta':
-            getEstudiantes()
-            break;
-        case 'editar':
-            editarEstudiante({ rut, nombre, curso, nivel })
-            break;
-        case 'eliminar':
-            eliminarEstudiante({ rut })
-            break;
-        default:
-            console.log("Funcion: " + funcion + " no es valida")
-            break;
-    }
+    (arregloFunciones.includes(funcion) == true)
+        ? await funciones[funcion]({ rut, nombre, curso, nivel })
+        : console.log("La funcion ingresada " + funcion + " no es valida")
     pool.end()
 })()
 
