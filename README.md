@@ -44,4 +44,5 @@ A través de terminal
 - **Danicsa Calderon** - [Danicsa Calderon](https://github.com/DaniCalderonM)
 - **Romina Valenzuela** - [Romina Valenzuela](https://github.com/Romstroke)
 - **Jean Woodley Bolivard** - [Jean Woodley Bolivard](https://github.com/jwoodleybolivard)
-![MuaKissGIF](https://github.com/DaniCalderonM/Desafio2-AlwaysMusic/assets/125617339/5fb2495c-68e7-48de-9feb-1b653d43fdf4)
+
+ ![MuaKissGIF](https://github.com/DaniCalderonM/Desafio2-AlwaysMusic/assets/125617339/5fb2495c-68e7-48de-9feb-1b653d43fdf4)
