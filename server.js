@@ -12,7 +12,7 @@ require('dotenv').config();
 
 //Funcion para validar rut
 const validarRut = (rut) => {
-    const rutExpReg = /^\d{1,2}\.\d{3}\.\d{3}-\d{1,2}$/;
+    const rutExpReg = /^\d{1,2}\.\d{3}\.\d{3}-(\d{1,2}|[K])$/
     return rutExpReg.test(rut);
 }
 //Funcion para consultar todos los estudiantes
@@ -49,7 +49,7 @@ const consultaRut = async ({ rut }) => {
 
         // Validar el formato del rut
         if (!validarRut(rut)) {
-            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1");
+            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1/-k");
         }
 
         // Definición del objeto queryJson con el texto de la consulta y los valores de los parámetros
@@ -83,7 +83,7 @@ const nuevoEstudiante = async ({ rut, nombre, curso, nivel }) => {
 
         // Validar el formato del rut
         if (!validarRut(rut)) {
-            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1");
+            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1/-k");
         }
 
         // Definición del objeto queryJson con el texto de la consulta y los valores de los parámetros
@@ -114,7 +114,7 @@ const editarEstudiante = async ({ rut, nombre, curso, nivel }) => {
 
         // Validar el formato del rut
         if (!validarRut(rut)) {
-            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1");
+            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1/-k");
         }
 
         // Definición del objeto queryJson con el texto de la consulta y los valores de los parámetros
@@ -150,7 +150,7 @@ const eliminarEstudiante = async ({ rut }) => {
 
         // Validar el formato del rut
         if (!validarRut(rut)) {
-            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1");
+            throw new Error("El rut ingresado no tiene el formato correcto, ejemplo: 11.111.111-1/-k");
         }
 
         // Definición del objeto queryJson con el texto de la consulta y los valores de los parámetros
